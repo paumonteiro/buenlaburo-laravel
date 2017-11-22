@@ -23,6 +23,7 @@ class RegisterController extends Controller
     public function form()
     {
       return view ('formulario');
+      //lalalalalal
     }
 
     use RegistersUsers;
