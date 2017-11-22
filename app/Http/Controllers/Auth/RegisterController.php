@@ -20,11 +20,7 @@ class RegisterController extends Controller
     |
     */
 
-    public function form()
-    {
-      return view ('formulario');
-      //lalalalalal
-    }
+
 
     use RegistersUsers;
 
@@ -74,4 +70,14 @@ class RegisterController extends Controller
             'password' => bcrypt($data['password']),
         ]);
     }
+
+
+    public function form()
+    {
+      return view ('formulario');
+
+    }
+
+
+    
 }
