@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 class ProductsController extends Controller
 {
   public function index() {
-$products = \App\Product::all();
+    $products = \App\Product::all();
 
 $variables = [
   "products" => $products,

@@ -76,5 +76,9 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('js/form.js') }}"></script>
+
+
+    </script>
 </body>
 </html>

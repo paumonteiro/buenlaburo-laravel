@@ -69,6 +69,9 @@
                             </div>
                         </div>
                     </form>
+                    <div class="errores">
+                      
+                    </div>
                 </div>
             </div>
         </div>
