@@ -27,7 +27,7 @@ public function show($id) {
 }
 
 public function create() {
-	return view('products.create');
+	return view('create');
 }
 
 public function store(Request $request) {
@@ -49,9 +49,13 @@ public function store(Request $request) {
 
     $producto = \App\Product::create([
         'name' => $request->input('name'),
+        'image' => $request->input('image'),
+        'active' => $request->input('active'),
         'cost' => $request->input('cost'),
         'profit_margin' => $request->input('profit_margin'),
-        'category_id' => $request->input('category_id')
+        'category_id' => $request->input('category_id'),
+        'created_at' => $request->input('created_at'),
+        'updated_at' => $request->input('updated_at'),
     ]);
 
     return redirect('/productos');
