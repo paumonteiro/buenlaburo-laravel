@@ -23,7 +23,7 @@ public function show($id) {
 		"product" => $product,
 	];
 
-	return view('products.show', $variables);
+	return view('show', $variables);
 }
 
 public function create() {
