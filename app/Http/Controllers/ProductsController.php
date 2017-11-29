@@ -27,7 +27,7 @@ public function show($id) {
 }
 
 public function create() {
-	return view('products.create');
+	return view('create');
 }
 
 public function store(Request $request) {
