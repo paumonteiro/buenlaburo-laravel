@@ -23,3 +23,7 @@ Route::get('/productos/agregar', 'ProductsController@create');
 Route::post('/productos/agregar', 'ProductsController@store');
 
 Route::get('/productos/{id}', 'ProductsController@show');
+
+Route::get('/productos', function () {
+    return view('productos');
+});
