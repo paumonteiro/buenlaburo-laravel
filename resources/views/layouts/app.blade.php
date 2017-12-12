@@ -8,10 +8,11 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
-
     <!-- Styles -->
+    <link href="{{ asset('css/master.css') }}" rel="stylesheet">
+
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
 </head>
 <body>
     <div id="app">
@@ -28,15 +29,19 @@
                     </button>
 
                     <!-- Branding Image -->
-                    <a class="navbar-brand" href="{{ url('/') }}">
+                    <a class="navbar-brand" href="{{ url('/') }}" alt="Juanito Ya">
                       <img src="img/JuanitoYaLogo.jpg" alt="Juanito Ya">
                     </a>
+
                 </div>
 
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
                         &nbsp;
+                        <li><a class="subnavbar" href="{{ route('productos') }}>Productos</a></li>
+                        <li><a class="subnavbar" href="#">Join the Crew</a></li>
+                        <li><a class="subnavbar" href="#">Contacto</a></li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
