@@ -39,7 +39,7 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
                         &nbsp;
-                        <li><a class="subnavbar" href="{{ route('productos') }}>Productos</a></li>
+                        <li><a class="subnavbar" href="{{ route('productos') }}">Productos</a></li>
                         <li><a class="subnavbar" href="#">Join the Crew</a></li>
                         <li><a class="subnavbar" href="#">Contacto</a></li>
                     </ul>

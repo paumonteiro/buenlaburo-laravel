@@ -13,7 +13,7 @@ $variables = [
   "products" => $products,
 ];
 
-return view('products.index', $variables);
+return view('productos', $variables);
 }
 
 public function show($id) {
@@ -60,7 +60,4 @@ public function store(Request $request) {
 
     return redirect('/productos');
 }
-
-protected $fillable = [ "columnasPermitidas" ];
-protected $guarded = [ " columnasProhibidas" ];
 }
