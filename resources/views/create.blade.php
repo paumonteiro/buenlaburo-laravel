@@ -9,7 +9,7 @@
 	<div class="container">
 		<h1>Agregar Productos</h1>
 
-    <form class="col-md-5" action="/productos/agregar" method="post">
+    <form class="col-md-5" action="/productos/agregar" method="post" enctype="multipart/form-data">
 	  	{{ csrf_field() }}
 	  	<div class="form-group">
 	  	<label for="name">Nombre</label>
@@ -31,9 +31,9 @@
 			</div>
 
 			<div class="form-group">
-				<label for="estado"> Estado </label>
+				<label for="active"> Estado </label><br>
 				<input type="radio" name="active" value="activo" checked> Activo <br>
-				<input type="radio" name="active" value="desactivo"> Desactivo
+				<input type="radio" name="active" value="desactivo"> Inactivo <br>
 			</div>
 
 	  	<div class="form-group">
