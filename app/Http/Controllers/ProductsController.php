@@ -25,6 +25,8 @@ class ProductsController extends Controller {
   public function store(Request $request) {
       $rules = [
           "name" => "required|unique:products",
+          "image" => "required|string",
+          "active" => "required|string",
           "cost" => "required|numeric",
           "profit_margin" => "required|numeric",
           "category_id" => "required|numeric|between:1,3"
@@ -39,17 +41,22 @@ class ProductsController extends Controller {
 
       $this->validate($request, $rules, $messages);
 
+      $producto = new Product;
+      $producto->name = $req["name"];
 
-      $producto = \App\Product::create([
-          'name' => $request->input('name'),
-          //'image' => $request->input('image'),
-          'active' => $request->input('active'),
-          'cost' => $request->input('cost'),
-          'profit_margin' => $request->input('profit_margin'),
-          'category_id' => $request->input('category_id'),
-          'created_at' => $request->input('created_at'),
-          'updated_at' => $request->input('updated_at'),
-      ]);
+      $image = $req->file("image");
+      $nombreArchivo = $image->storePublicly("public/img");
+      $producto->image = $nombreArchivo;
+
+      $producto->active = $req["active"];
+      $producto->cost = $req["cost"];
+      $producto->profit_margin = $req["profit_margin"];
+      $producto->category_id =$req["category_id"];
+      $producto->created_at = $req["created_at"];
+      $producto->updated_at = $req["updated_at"];
+
+      $producto->save();
+
 
       return redirect('/productos');
   }
