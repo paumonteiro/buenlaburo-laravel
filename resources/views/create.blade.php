@@ -32,8 +32,8 @@
 
 			<div class="form-group">
 				<label for="active"> Estado </label><br>
-				<input type="radio" name="active" value="activo" checked> Activo <br>
-				<input type="radio" name="active" value="desactivo"> Inactivo <br>
+				<input type="radio" name="active" value="1" checked> Activo <br>
+				<input type="radio" name="active" value="0"> Inactivo <br>
 			</div>
 
 	  	<div class="form-group">
