@@ -7,9 +7,9 @@
     </head>
     <body>
     <ul>
-        @foreach ($products as $product)
-			<li><a href="/productos/{{$product->id}}">{{$product->name}}</a></li>
-		@endforeach
+      @foreach ($products as $product)
+			     <li><a href="/productos/{{$product->id}}">{{$product->name}}</a></li>
+		  @endforeach
     </ul>
     </body>
 </html>

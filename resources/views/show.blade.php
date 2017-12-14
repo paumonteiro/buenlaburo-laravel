@@ -7,8 +7,8 @@
     </head>
     <body>
         <h1>{{$product->name}}</h1>
-		<p>{{$product->cost}}</p>
-		<p>{{$product->profit_margin}}</p>
-		<p>{{$product->getPrice()}}</p>
+		      <p>{{$product->cost}}</p>
+		      <p>{{$product->getPrice()}}</p>
+		    
     </body>
 </html>

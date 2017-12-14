@@ -27,7 +27,7 @@
 
 			<div class="form-group">
 				<label for="image" > Imagen </label>
-				<input type="file" name="pic" accept="image/*" value="{{old('image')}}">
+				<input type="file" name="image" accept="image/*" value="{{old('image')}}">
 			</div>
 
 			<div class="form-group">

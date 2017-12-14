@@ -25,7 +25,7 @@
                   </div>
                 </div>
                   <a class="left carousel-control" href="#myCarousel" data-slide="prev"> <!-- Left and right controls -->
-                  
+
                     <span class="sr-only">Previous</span>
                   </a>
                   <a class="right carousel-control" href="#myCarousel" data-slide="next">
@@ -40,46 +40,24 @@
                   <strong class="nuevas-camperas">Nuevas camperas Old-school</strong>
                   </h1>
                   <hr class="linea-main">
-                <div class="row">
-                  <div class="box-producto col-md-4">
-                    <img src="img/box-producto1.jpg" alt="foto-izq" class="imagen">
-                    <h2 class="titulo"> Lorem Ipsum </h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ante tortor, condimentum ac consequat nec, iaculis laoreet purus.</p>
-                    <button type="button" name="button">Ver más</button>
+                  <div class="row">
+
+
+                    @foreach ($products as $product)
+
+
+                      <div class="box-producto col-md-4">
+                        <img src="{{ asset('storage/' . $product->image) }}" alt="" class="imagen">
+                        <h2 class="titulo"> {{$product->name}} </h2>
+                        <h2 class="titulo"> ${{$product->cost}} </h2>
+                        <a href="/productos/{{$product->id}}">Ver mas</a>
+                      </div>
+
+                    @endforeach
+
+
                   </div>
-                  <div class="box-producto col-md-4">
-                    <img src="img/box-producto2.jpg" alt="foto-izq" class="imagen">
-                    <h2 class="titulo"> Lorem Ipsum </h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ante tortor, condimentum ac consequat nec, iaculis laoreet purus.</p>
-                    <button type="button" name="button">Ver más</button>
-                  </div>
-                  <div class="box-producto col-md-4">
-                    <img src="img/box-producto3.jpg" alt="foto-izq" class="imagen">
-                    <h2 class="titulo"> Lorem Ipsum </h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ante tortor, condimentum ac consequat nec, iaculis laoreet purus.</p>
-                    <button type="button" name="button">Ver más</button>
-                  </div>
-                </div>
-                <div class="row"> <!--segunda fila -->
-                  <div class="box-producto col-md-4">
-                    <img src="img/box-producto5.jpg" alt="foto-izq" class="imagen">
-                    <h2 class="titulo"> Lorem Ipsum </h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ante tortor, condimentum ac consequat nec, iaculis laoreet purus.</p>
-                    <button type="button" name="button">Ver más</button>
-                  </div>
-                  <div class="box-producto col-md-4">
-                    <img src="img/box-producto4.jpg" alt="foto-izq" class="imagen">
-                    <h2 class="titulo"> Lorem Ipsum </h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ante tortor, condimentum ac consequat nec, iaculis laoreet purus.</p>
-                    <button type="button" name="button">Ver más</button>
-                  </div>
-                  <div class="box-producto col-md-4">
-                    <img src="img/box-producto6.jpg" alt="foto-izq" class="imagen">
-                    <h2 class="titulo"> Lorem Ipsum </h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ante tortor, condimentum ac consequat nec, iaculis laoreet purus.</p>
-                    <button type="button" name="button">Ver más</button>
-                  </div>
-                </div>
+          
               </main>
           </div>
         </div>
