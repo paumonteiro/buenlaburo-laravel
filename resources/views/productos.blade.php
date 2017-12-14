@@ -20,7 +20,7 @@
         <img src="{{ asset('storage/' . $product->image) }}" alt="" class="imagen">
         <h2 class="titulo"> {{$product->name}} </h2>
         <h2 class="titulo"> ${{$product->cost}} </h2>
-        <a href="/productos/{{$product->id}}">Ver mas</a>
+        <a href="/productos/{{$product->id}}">Ver más</a>
       </div>
 
     @endforeach

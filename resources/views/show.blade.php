@@ -1,14 +1,26 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <title>{{$product->name}}</title>
-        <link rel="stylesheet" href="/css/app.css">
-    </head>
-    <body>
+@extends('layouts.app')
+
+@section('content')
+
+  <body>
+    <div class="container">
+      <div class="col-md-4">
         <h1>{{$product->name}}</h1>
-		      <p>{{$product->cost}}</p>
-		      <p>{{$product->getPrice()}}</p>
-		    
-    </body>
-</html>
+        <img src="{{ asset('storage/' . $product->image) }}" alt="" class="imagen">
+        <br>
+        <br>
+        <br>
+      </div>
+      <div class="col-md-4">
+        <br>
+        <br>
+        <br>
+        <h2>${{$product->cost}}</h2>
+        <a href="/productos">Ver todos los productos</a>
+      </div>
+
+    </div>
+
+  </body>
+
+@endsection

@@ -19,3 +19,6 @@ Route::get('/productos', 'ProductsController@index')->name("productos");
 Route::get('/productos/agregar', 'ProductsController@create');
 Route::post('/productos/agregar', 'ProductsController@store');
 Route::get('/productos/{id}', 'ProductsController@show');
+Route::get('/productos/{id}/edit', 'ProductsController@edit');
+Route::patch('/productos/{id}', 'ProductsController@update');
+Route::delete('/productos/{id}/edit', 'ProductsController@destroy');

@@ -57,8 +57,8 @@
 
 
                   </div>
-          
+
               </main>
           </div>
         </div>
-        @endsection
+  @endsection

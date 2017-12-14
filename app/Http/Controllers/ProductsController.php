@@ -26,6 +26,7 @@ class ProductsController extends Controller {
   }
 
   public function store(Request $request) {
+      $input = $request->except('_token');
       $rules = [
           "name" => "required|unique:products",
           "image" => "required",
@@ -80,4 +81,46 @@ class ProductsController extends Controller {
   public function category() {
   	   return $this->belongsTo('\App\Category', 'category_id', 'id');
   }
+
+  public function destroy($id) {
+    $product = \App\Product::find($id);
+
+    $product->delete();
+
+    return redirect('/productos');
+}
+
+  public function edit($id) {
+    $product = \App\Product::find($id);
+
+    $variables = [
+        'product' => $product,
+    ];
+
+    return view('edit', $variables);
+}
+
+
+public function update(Request $request, $id) {
+    $product = \App\Product::find($id);
+
+    $product->name = $request->input('name');
+
+    /*if (isset $request->input('image')) {
+      $extensionImagen = $request->file('image')->getClientOriginalExtension();
+      $fotoPath = $request->file('image')->storeAs('productos', uniqid() . "." . $extensionImagen, 'public');
+
+      $product->image= $fotoPath;
+    }
+    */
+
+    $product->active= $request->input('active');
+    $product->cost = $request->input('cost');
+    $product->profit_margin = $request->input('profit_margin');
+    $product->category()->associate($category);
+    $product->save();
+
+    return redirect('/productos/' . $id);
+}
+
 }
