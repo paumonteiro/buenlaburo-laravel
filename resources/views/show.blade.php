@@ -16,6 +16,11 @@
         <br>
         <br>
         <h2>${{$product->cost}}</h2>
+        <br>
+        @if (Auth::check() && $product->user_id == Auth::user()->id)
+          <a href="/productos/{{$product->id}}/edit">Editar</a>
+        @endif
+        <br>
         <a href="/productos">Ver todos los productos</a>
       </div>
 

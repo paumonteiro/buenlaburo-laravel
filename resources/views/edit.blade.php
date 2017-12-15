@@ -6,7 +6,7 @@
 		<div class="container">
 			<h1>Editando: {{$product->name}}</h1>
 
-	    <form class="col-md-5" action="/productos/{{$product->id}}" method="post">
+	    <form class="col-md-5" action="/productos/{{$product->id}}" method="post" enctype="multipart/form-data">
 				{{ csrf_field() }}
 	      {{ method_field('patch') }}
 		  	<div class="form-group">
@@ -72,13 +72,16 @@
 		  	<div class="form-group">
 		  		<button type="submit" name="button" class="btn btn-primary">Enviar</button>
 		  		<a href="/productos/{{$product->id}}">Cancelar</a><br><br>
-					<form action="/productos/{{$product->id}}" method="post">
-						{{ csrf_field() }}
-						{{ method_field('delete') }}
-						<button type="submit">Borrar Producto</button>
-					</form>
+
 		  	</div>
 		  </form>
+      <br>
+      <br>
+      <form action="/productos/{{$product->id}}" method="post">
+        {{ csrf_field() }}
+        {{ method_field('delete') }}
+        <button type="submit">Borrar Producto</button>
+      </form>
 		</div>
 
   </body>

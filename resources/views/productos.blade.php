@@ -21,6 +21,10 @@
         <h2 class="titulo"> {{$product->name}} </h2>
         <h2 class="titulo"> ${{$product->cost}} </h2>
         <a href="/productos/{{$product->id}}">Ver más</a>
+        <br>
+        @if (Auth::check() && $product->user_id == Auth::user()->id)
+          <a href="/productos/{{$product->id}}/edit">Editar</a>
+        @endif
       </div>
 
     @endforeach

@@ -9,7 +9,7 @@ class Product extends Model
 
 
   protected $fillable = [
-      'name', 'image', 'active', 'cost', 'profit_margin', 'category_id', 'created_at', 'updated_at',
+      'name', 'image', 'active', 'cost', 'profit_margin', 'category_id', 'user_id', 'created_at', 'updated_at',
   ];
 
   public function getPrice() {

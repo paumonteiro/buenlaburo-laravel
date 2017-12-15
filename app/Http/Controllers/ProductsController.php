@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Product;
+use Auth;
 
 class ProductsController extends Controller {
 
@@ -48,25 +49,14 @@ class ProductsController extends Controller {
       $extensionImagen = $request->file('image')->getClientOriginalExtension();
       $fotoPath = $request->file('image')->storeAs('productos', uniqid() . "." . $extensionImagen, 'public');
 
-
-
-
       $producto = new Product;
       $producto->name = $request["name"];
-
-      /*
-      $imagen = $request->file("image");
-      $nombreArchivo = $imagen->storePublicly("public/img");
-
-      */
       $producto->image = $fotoPath;
       $producto->active = $request["active"];
       $producto->cost = $request["cost"];
       $producto->profit_margin = $request["profit_margin"];
       $producto->category_id =$request["category_id"];
-
-      /*$producto->created_at = $request["created_at"];
-      $producto->updated_at = $request["updated_at"];*/
+      $producto->user_id = Auth::user()->id;
 
       $producto->save();
 
@@ -104,20 +94,34 @@ class ProductsController extends Controller {
 public function update(Request $request, $id) {
     $product = \App\Product::find($id);
 
-    $product->name = $request->input('name');
+    if ($request->has('name')) {
+      $product->name = $request->input('name');
+    }
 
-    /*if (isset $request->input('image')) {
+    if ($request->has('image') && $request->file('image') !== null) {
+
       $extensionImagen = $request->file('image')->getClientOriginalExtension();
       $fotoPath = $request->file('image')->storeAs('productos', uniqid() . "." . $extensionImagen, 'public');
 
       $product->image= $fotoPath;
     }
-    */
 
-    $product->active= $request->input('active');
-    $product->cost = $request->input('cost');
-    $product->profit_margin = $request->input('profit_margin');
-    $product->category()->associate($category);
+    if ($request->has('active')) {
+      $product->active = $request->input('active');
+    }
+
+    if ($request->has('cost')) {
+      $product->cost = $request->input('cost');
+    }
+
+    if ($request->has('profit_margin')) {
+      $product->profit_margin = $request->input('profit_margin');
+    }
+
+    /*if ($request->has('category_id')) {
+      $product->name = associate($category);
+    }*/
+
     $product->save();
 
     return redirect('/productos/' . $id);
